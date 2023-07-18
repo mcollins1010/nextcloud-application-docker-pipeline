@@ -19,6 +19,7 @@ pipeline {
         stage ("Build Image") {
             steps {
                 script {
+                    // aensure docker user has permission
                     dockerImage = docker.build registry
                     dockerImage.tag("$BUILD_NUMBER")
                 }
